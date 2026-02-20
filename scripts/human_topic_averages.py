@@ -42,5 +42,6 @@ human_df = pd.DataFrame(human_rows)
 # -------- SAVE --------
 human_df.to_csv("outputs/human_topic_averages_nyt.csv", index=False)
 
-print("✅ Human topic-level averages saved to outputs/human_topic_averages_nyt.csv")
+print(" Human topic-level averages saved to outputs/human_topic_averages_nyt.csv")
 print(human_df.head())
+
