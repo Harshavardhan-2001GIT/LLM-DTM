@@ -37,4 +37,43 @@ Task 1.4 – Human vs LLM Correlation
 
 The experiments use a local LLM via **Ollama**.
 
+Raw topic files are not included in this repository.
+Please place DETM–NYT topic files under:
+data/DETM/nyt/
+
+INSTRUCTIONS-
+## Setup Instructions
+
+### 1. Clone Repository
+
+git clone https://github.com/Harshavardhan-2001GIT/LLM-DTM.git
+cd LLM-DTM
+## Setup Instructions
+
+2.Install Ollama
+
+Download from: https://ollama.com/
+
+Pull the model:
+
+ollama pull llama3
+
+VERY IMPORTANT-
+## Data Requirement
+
+Raw DETM topic files are not included in this repository.
+
+Please place topic files in:
+
+data/DETM/nyt/
+
+Example:
+data/DETM/nyt/1987.txt
+data/DETM/nyt/1988.txt
+...
+
+
+
+
+
 
