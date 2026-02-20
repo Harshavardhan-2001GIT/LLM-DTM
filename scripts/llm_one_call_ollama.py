@@ -1,11 +1,14 @@
 from pathlib import Path
 import subprocess
 
-# -------- paths --------
-DATA_DIR = Path(r"D:\LLM Evaluation for DTM\prolific\prolific\DETM\nyt")
-PROMPT_PATH = Path("prompts/temporal_eval.txt")
+# -------- BASE DIRECTORY --------
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-# -------- topic + years --------
+# -------- PATHS --------
+DATA_DIR = BASE_DIR / "data" / "DETM" / "nyt"
+PROMPT_PATH = BASE_DIR / "prompts" / "temporal_eval.txt"
+
+# -------- TOPIC + YEARS --------
 topic_id = 0
 years = [1987, 1988, 1989]
 
@@ -19,7 +22,7 @@ words_prev = get_topic_words(years[0], topic_id)
 words_curr = get_topic_words(years[1], topic_id)
 words_next = get_topic_words(years[2], topic_id)
 
-# -------- build prompt --------
+# -------- BUILD PROMPT --------
 template = PROMPT_PATH.read_text(encoding="utf-8")
 
 prompt = template.format(
@@ -32,7 +35,7 @@ print("PROMPT SENT TO LLM:\n")
 print(prompt)
 print("\n--- LLM RESPONSE ---\n")
 
-# -------- call Ollama --------
+# -------- CALL OLLAMA --------
 result = subprocess.run(
     ["ollama", "run", "llama3"],
     input=prompt,
@@ -43,4 +46,5 @@ result = subprocess.run(
 )
 
 print(result.stdout)
+
 
