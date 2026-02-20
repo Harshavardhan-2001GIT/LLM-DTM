@@ -1,7 +1,12 @@
 import pandas as pd
+from pathlib import Path
 
-# -------- PATH --------
-LLM_FILE = r"D:\LLM Evaluation for DTM\outputs\llm_detm_nyt_scores.csv"
+# -------- BASE DIRECTORY --------
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# -------- PATHS --------
+LLM_FILE = BASE_DIR / "outputs" / "llm_detm_nyt_scores.csv"
+OUTPUT_FILE = BASE_DIR / "outputs" / "llm_topic_averages_nyt.csv"
 
 # -------- LOAD DATA --------
 df = pd.read_csv(LLM_FILE)
@@ -22,7 +27,8 @@ llm_avg.rename(
 )
 
 # -------- SAVE --------
-llm_avg.to_csv("outputs/llm_topic_averages_nyt.csv", index=False)
+llm_avg.to_csv(OUTPUT_FILE, index=False)
 
-print("✅ LLM topic-level averages saved to outputs/llm_topic_averages_nyt.csv")
+print("LLM topic-level averages saved to:", OUTPUT_FILE)
 print(llm_avg.head())
+
