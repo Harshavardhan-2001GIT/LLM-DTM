@@ -5,10 +5,13 @@ import re
 import time
 import pandas as pd
 
+# ---------------- BASE DIRECTORY ----------------
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 # ---------------- PATHS ----------------
-DATA_DIR = Path(r"D:\LLM Evaluation for DTM\prolific\prolific\DETM\nyt")
-PROMPT_PATH = Path("prompts/temporal_eval.txt")
-OUTPUT_DIR = Path("outputs")
+DATA_DIR = BASE_DIR / "data" / "DETM" / "nyt"
+PROMPT_PATH = BASE_DIR / "prompts" / "temporal_eval.txt"
+OUTPUT_DIR = BASE_DIR / "outputs"
 OUTPUT_DIR.mkdir(exist_ok=True)
 
 OUTPUT_FILE = OUTPUT_DIR / "llm_detm_nyt_scores.csv"
@@ -54,6 +57,7 @@ years = sorted(int(p.stem) for p in DATA_DIR.glob("*.txt"))
 
 for topic_id in range(NUM_TOPICS):
     print(f"Processing topic {topic_id}...")
+
     for i in range(1, len(years) - 1):
         y_prev, y_curr, y_next = years[i-1], years[i], years[i+1]
 
@@ -89,5 +93,5 @@ for topic_id in range(NUM_TOPICS):
 df = pd.DataFrame(rows)
 df.to_csv(OUTPUT_FILE, index=False)
 
-print("\n✅ DONE")
+print("\n DONE")
 print(f"Saved results to: {OUTPUT_FILE}")
