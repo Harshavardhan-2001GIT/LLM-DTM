@@ -4,10 +4,13 @@ import json
 import re
 import pandas as pd
 
+# -------- BASE DIRECTORY --------
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 # -------- PATHS --------
-DATA_DIR = Path(r"D:\LLM Evaluation for DTM\prolific\prolific\DETM\nyt")
-PROMPT_PATH = Path("prompts/evolution_eval.txt")
-OUTPUT_DIR = Path("outputs")
+DATA_DIR = BASE_DIR / "data" / "DETM" / "nyt"
+PROMPT_PATH = BASE_DIR / "prompts" / "evolution_eval.txt"
+OUTPUT_DIR = BASE_DIR / "outputs"
 OUTPUT_DIR.mkdir(exist_ok=True)
 
 OUTPUT_FILE = OUTPUT_DIR / "llm_evolution_detm_nyt.csv"
@@ -73,6 +76,6 @@ for topic_id in TOPICS:
 df = pd.DataFrame(rows)
 df.to_csv(OUTPUT_FILE, index=False)
 
-print("\n DONE")
+print("\nDONE")
 print(f"Saved results to: {OUTPUT_FILE}")
 
