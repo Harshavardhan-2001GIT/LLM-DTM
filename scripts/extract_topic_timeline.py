@@ -21,3 +21,4 @@ for y in years:
     words = get_topic_words(y, topic_id)
     print(f"{y}: {', '.join(words[:10])}")
 
+
