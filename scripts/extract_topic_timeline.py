@@ -1,6 +1,10 @@
 from pathlib import Path
 
-DATA_DIR = Path(r"D:\LLM Evaluation for DTM\prolific\prolific\DETM\nyt")
+# Base directory = project root (LLM-DTM)
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Data directory inside repo
+DATA_DIR = BASE_DIR / "data" / "DETM" / "nyt"
 
 topic_id = 0
 years = [1987, 1992, 1997, 2002, 2007]
@@ -16,3 +20,4 @@ print(f"\nTopic {topic_id} evolution:\n")
 for y in years:
     words = get_topic_words(y, topic_id)
     print(f"{y}: {', '.join(words[:10])}")
+
