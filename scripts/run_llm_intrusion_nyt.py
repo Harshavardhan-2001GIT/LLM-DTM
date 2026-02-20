@@ -63,5 +63,6 @@ for topic_id in TOPICS:
 df = pd.DataFrame(rows)
 df.to_csv(OUTPUT_FILE, index=False)
 
-print("\n✅ DONE")
+print("\n DONE")
 print(f"Saved results to: {OUTPUT_FILE}")
+
