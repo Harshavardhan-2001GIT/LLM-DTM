@@ -1,0 +1,18 @@
+You are an expert in topic modeling and temporal text analysis.
+
+Below are the top words for the same topic at three consecutive time steps.
+
+Time t-1: {prev_words}
+Time t: {curr_words}
+Time t+1: {next_words}
+
+Tasks:
+1. Rate the word relatedness of the topic at time t on a scale of 1 to 3.
+2. Rate the smoothness of the transition from t-1 to t to t+1 on a scale of 1 to 3.
+
+Reply only in valid JSON:
+Reply only in valid JSON:
+{{
+  "temporal_coherence": 1|2|3,
+  "temporal_smoothness": 1|2|3
+}}

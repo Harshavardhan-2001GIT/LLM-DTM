@@ -1,0 +1,10 @@
+You are evaluating topic coherence in a Dynamic Topic Model.
+
+One of the following words does NOT belong to the topic at this time step.
+
+Topic words:
+{words}
+
+Which word is the intruder?
+
+Reply with ONLY the word.

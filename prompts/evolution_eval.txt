@@ -1,0 +1,22 @@
+You are evaluating the long-term evolution of a topic in a Dynamic Topic Model.
+
+Below are the top words for the SAME topic across multiple years.
+
+Your task is to judge how the topic evolves over time.
+
+Topic words by year:
+{timeline}
+
+Choose ONE category that best describes the topic evolution:
+
+1. Smooth and coherent evolution
+2. Gradual semantic drift
+3. Abrupt topic shift
+4. Largely incoherent evolution
+
+Reply ONLY in valid JSON:
+{{
+  "evolution_type": "one of the four categories",
+  "brief_explanation": "1-2 sentence explanation"
+}}
+
