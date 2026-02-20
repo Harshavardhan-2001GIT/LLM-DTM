@@ -1,8 +1,12 @@
 from pathlib import Path
 import subprocess
 
-DATA_DIR = Path(r"D:\LLM Evaluation for DTM\prolific\prolific\DETM\nyt")
-PROMPT_PATH = Path("prompts/evolution_eval.txt")
+# -------- BASE DIRECTORY --------
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# -------- PATHS --------
+DATA_DIR = BASE_DIR / "data" / "DETM" / "nyt"
+PROMPT_PATH = BASE_DIR / "prompts" / "evolution_eval.txt"
 
 topic_id = 0
 years = [1987, 1992, 1997, 2002, 2007]
@@ -13,6 +17,7 @@ def get_topic_words(year, topic_id):
         lines = f.readlines()
     return lines[topic_id].strip().split()
 
+# -------- BUILD TIMELINE --------
 timeline_lines = []
 
 for y in years:
@@ -21,6 +26,7 @@ for y in years:
 
 timeline_text = "\n".join(timeline_lines)
 
+# -------- LOAD PROMPT TEMPLATE --------
 template = PROMPT_PATH.read_text(encoding="utf-8")
 prompt = template.format(timeline=timeline_text)
 
@@ -42,4 +48,5 @@ print(result.stdout)
 
 print("\n--- RAW STDERR ---\n")
 print(result.stderr)
+
 
